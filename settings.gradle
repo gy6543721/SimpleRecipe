@@ -3,9 +3,6 @@ pluginManagement {
         gradlePluginPortal()
         google()
         mavenCentral()
-        // To resolve 'com.todkars:shimmer-recyclerview:0.4.1'
-        jcenter()
-        maven { url "https://jitpack.io" }
     }
 }
 dependencyResolutionManagement {
@@ -13,9 +10,6 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        // To resolve 'com.todkars:shimmer-recyclerview:0.4.1'
-        jcenter()
-        maven { url "https://jitpack.io" }
     }
 }
 rootProject.name = "SimpleRecipe"
