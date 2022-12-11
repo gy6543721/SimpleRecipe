@@ -12,12 +12,12 @@
         tools:layout="@layout/fragment_recipes" />
     <fragment
         android:id="@+id/favoritesFragment"
-        android:name="com.example.simplerecipe.FavoritesFragment"
+        android:name="com.example.simplerecipe.view.FavoritesFragment"
         android:label="fragment_favorite"
         tools:layout="@layout/fragment_favorites" />
     <fragment
         android:id="@+id/othersFragment"
-        android:name="com.example.simplerecipe.OthersFragment"
+        android:name="com.example.simplerecipe.view.OthersFragment"
         android:label="fragment_others"
         tools:layout="@layout/fragment_others" />
 
