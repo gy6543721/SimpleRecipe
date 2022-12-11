@@ -1,13 +1,13 @@
 # SimpleRecipe
 Native Android Application written in Kotlin.  
-Support English and Japanese.  
+Based on MVVM structure, support English and Japanese.  
 <br>
 <br>
 
 # Main Libraries Used
 * View Binding
 * Data Binding
-* Lifecycle
+* LiveData
 * Coroutines
 * Shimmer FrameLayout
 * Room
