@@ -14,8 +14,9 @@ import com.example.simplerecipe.databinding.FragmentRecipesBinding
 import com.example.simplerecipe.utility.ConstantValue.Companion.API_KEY
 import com.example.simplerecipe.utility.NetworkResult
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 
+@ExperimentalCoroutinesApi
 @AndroidEntryPoint
 class RecipesFragment : Fragment() {
 
