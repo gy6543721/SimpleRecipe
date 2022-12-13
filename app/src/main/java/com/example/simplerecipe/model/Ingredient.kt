@@ -1,9 +1,9 @@
-package com.example.simplerecipe.data
+package com.example.simplerecipe.model
 
 
 import com.google.gson.annotations.SerializedName
 
-data class Equipment(
+data class Ingredient(
     @SerializedName("id")
     val id: Int,
     @SerializedName("image")

@@ -1,6 +1,6 @@
 # SimpleRecipe
 Native Android Application written in Kotlin.  
-Based on MVVM structure, support English and Japanese.  
+Using MVVM structure and Dependency Injection, support English and Japanese.  
 <br>
 <br>
 
@@ -13,6 +13,7 @@ Based on MVVM structure, support English and Japanese.
 * Room
 * DataStore
 * Jsoup
+* OkHttp
 * Retrofit
 * Gson
 * Dagger Hilt

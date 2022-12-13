@@ -1,4 +1,4 @@
-package com.example.simplerecipe.data
+package com.example.simplerecipe.model
 
 
 import com.google.gson.annotations.SerializedName

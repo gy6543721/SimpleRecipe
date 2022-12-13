@@ -1,4 +1,4 @@
-package com.example.simplerecipe
+package com.example.simplerecipe.utility
 
 class ConstantValue {
     companion object {
