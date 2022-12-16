@@ -1,18 +1,17 @@
 package com.example.simplerecipe.data
 
+import android.util.Log
 import com.example.simplerecipe.model.RecipeAPIData
-import dagger.Binds
-import dagger.Module
-import dagger.Provides
-import dagger.hilt.InstallIn
-import dagger.hilt.android.scopes.ViewModelScoped
-import dagger.hilt.components.SingletonComponent
 import retrofit2.Response
 import javax.inject.Inject
-import javax.inject.Singleton
 
-class RemoteDataSource @Inject constructor(private val recipeAPIData: RecipeAPI) {
-    suspend fun getRecipes(query: Map<String?,String?>): Response<RecipeAPIData> {
+class RemoteDataSource @Inject constructor() {
+
+    // This is not initialized
+    lateinit var recipeAPIData: RecipeAPI
+
+    suspend fun getRecipes(query: Map<String?, String?>): Response<RecipeAPIData> {
+        Log.d("TAG", query.toString())
         return recipeAPIData.getRecipes(query)
     }
 }

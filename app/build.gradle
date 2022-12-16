@@ -67,9 +67,6 @@ dependencies {
     annotationProcessor "androidx.room:room-compiler:2.4.3"
     implementation "androidx.room:room-ktx:2.4.3"
     androidTestImplementation "androidx.room:room-testing:2.4.3"
-    // Data binding
-//    kapt "com.android.databinding:compiler:3.2.0-alpha10"
-//    kapt "androidx.databinding:databinding-common:7.3.1"
     // DataStore
     implementation "androidx.datastore:datastore-preferences:1.0.0"
     // Recyclerview
@@ -97,7 +94,7 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.10'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     // Shimmer FrameLayout
-    implementation 'com.facebook.shimmer:shimmer:0.5.0'
+    implementation 'dev.volo.shimmer:shimmer:0.6.0-alpha01'
     // Jsoup
     implementation 'org.jsoup:jsoup:1.15.3'
 }

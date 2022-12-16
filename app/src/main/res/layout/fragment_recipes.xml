@@ -7,7 +7,7 @@
     tools:context=".view.RecipesFragment">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/badInternetImage"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:alpha="0.5"
@@ -20,7 +20,7 @@
         tools:ignore="ContentDescription" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/badInternetText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:alpha="0.5"
@@ -28,9 +28,9 @@
         android:textSize="20sp"
         android:textStyle="bold"
         android:visibility="invisible"
-        app:layout_constraintLeft_toLeftOf="@+id/imageView"
-        app:layout_constraintRight_toRightOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintLeft_toLeftOf="@+id/badInternetImage"
+        app:layout_constraintRight_toRightOf="@+id/badInternetImage"
+        app:layout_constraintTop_toBottomOf="@+id/badInternetImage"
         tools:ignore="TextContrastCheck" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -52,10 +52,11 @@
         tools:ignore="ContentDescription,ImageContrastCheck,SpeakableTextPresentCheck" />
 
     <com.facebook.shimmer.ShimmerFrameLayout
-        android:id="@+id/shimmerViewContainer"
+        android:id="@+id/shimmerViewFrame"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_centerInParent="true"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -66,9 +67,11 @@
 
         <!-- Adding 8 rows of placeholders -->
         <LinearLayout
+            android:id="@+id/shimmerViewContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:visibility="visible">
             <include layout="@layout/recipe_card_placeholder" />
             <include layout="@layout/recipe_card_placeholder" />
             <include layout="@layout/recipe_card_placeholder" />

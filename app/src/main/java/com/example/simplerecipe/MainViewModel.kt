@@ -4,6 +4,7 @@ import android.app.Application
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
@@ -28,7 +29,11 @@ class MainViewModel @Inject constructor(
     }
 
     private suspend fun getRecipeSafeCall(queryMap: Map<String?, String?>) {
+
         recipeResponse.value = NetworkResult.Loading()
+
+//        Log.d("TAG", repository.remoteData.getRecipes(queryMap).toString())
+
         if(hasInternetConnection()) {
             try {
                 val response = repository.remoteData.getRecipes(queryMap)

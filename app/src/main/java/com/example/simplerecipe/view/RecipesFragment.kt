@@ -17,13 +17,11 @@ import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.scopes.FragmentScoped
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
+
 @AndroidEntryPoint
 @FragmentScoped
 @ExperimentalCoroutinesApi
 class RecipesFragment : Fragment() {
-
-//    private lateinit var fragmentView: View
-//    private var shimmerViewContainer: ShimmerFrameLayout? = null
     private lateinit var binding: FragmentRecipesBinding
     private lateinit var mainViewModel: MainViewModel
     private val recipeAdapter by lazy { RecipeAdapter() }
@@ -31,7 +29,6 @@ class RecipesFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mainViewModel = ViewModelProvider(requireActivity())[MainViewModel::class.java]
-
     }
 
     override fun onCreateView(
@@ -41,8 +38,8 @@ class RecipesFragment : Fragment() {
 //        // Inflate the layout for this fragment
 //        fragmentView = inflater.inflate(R.layout.fragment_recipes, container, false)
 //        return fragmentView
+
         binding = FragmentRecipesBinding.inflate(inflater,container,false)
-//        mainViewModel = ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
         setupView()
         requestData()
         return binding.root
@@ -51,7 +48,7 @@ class RecipesFragment : Fragment() {
     private fun setupView() {
         binding.recyclerView.adapter = recipeAdapter
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        showShimmerEffect()
+//        showShimmerEffect()
     }
 
     private fun requestData() {
@@ -59,11 +56,12 @@ class RecipesFragment : Fragment() {
         mainViewModel.recipeResponse.observe(viewLifecycleOwner) { response ->
             when (response) {
                 is NetworkResult.Success -> {
-                    hideShimmerEffect()
+                    showShimmerEffect()
                     response.data?.let { recipeAdapter.setData(it) }
                 }
                 is NetworkResult.Fail -> {
-                    hideShimmerEffect()
+                    showInternetAvalibility()
+                    stopShimmerEffect()
                     Toast.makeText(requireContext(),response.message,Toast.LENGTH_SHORT).show()
                 }
                 is NetworkResult.Loading -> {
@@ -88,11 +86,23 @@ class RecipesFragment : Fragment() {
     }
 
     private fun showShimmerEffect() {
-        binding.shimmerViewContainer.startShimmer()
+        binding.shimmerViewFrame.startShimmer()
+        binding.shimmerViewFrame.visibility = View.VISIBLE
     }
 
-    private fun hideShimmerEffect() {
-        binding.shimmerViewContainer.stopShimmer()
+    private fun stopShimmerEffect() {
+        binding.shimmerViewFrame.stopShimmer()
+        binding.shimmerViewFrame.visibility = View.INVISIBLE
+    }
+
+    private fun showInternetAvalibility() {
+        binding.badInternetImage.visibility = View.VISIBLE
+        binding.badInternetText.visibility = View.VISIBLE
+    }
+
+    private fun hideInternetAvalibility() {
+        binding.badInternetImage.visibility = View.GONE
+        binding.badInternetText.visibility = View.GONE
     }
 
 

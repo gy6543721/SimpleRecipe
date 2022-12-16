@@ -1,7 +1,5 @@
 package com.example.simplerecipe.adapter
 
-import android.graphics.Color.green
-import android.media.Image
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
