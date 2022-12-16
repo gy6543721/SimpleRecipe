@@ -13,7 +13,6 @@ import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.scopes.ActivityScoped
 
 @AndroidEntryPoint
-@ActivityScoped
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding

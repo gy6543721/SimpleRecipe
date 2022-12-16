@@ -5,10 +5,7 @@ import com.example.simplerecipe.model.RecipeAPIData
 import retrofit2.Response
 import javax.inject.Inject
 
-class RemoteDataSource @Inject constructor() {
-
-    // This is not initialized
-    lateinit var recipeAPIData: RecipeAPI
+class RemoteDataSource @Inject constructor(private val recipeAPIData: RecipeAPI) {
 
     suspend fun getRecipes(query: Map<String?, String?>): Response<RecipeAPIData> {
         Log.d("TAG", query.toString())

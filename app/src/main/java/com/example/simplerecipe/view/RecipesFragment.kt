@@ -19,10 +19,10 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 
 @AndroidEntryPoint
-@FragmentScoped
 @ExperimentalCoroutinesApi
 class RecipesFragment : Fragment() {
-    private lateinit var binding: FragmentRecipesBinding
+    private var _binding: FragmentRecipesBinding? = null
+    private val binding get() = _binding!!
     private lateinit var mainViewModel: MainViewModel
     private val recipeAdapter by lazy { RecipeAdapter() }
 
@@ -35,11 +35,7 @@ class RecipesFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-//        // Inflate the layout for this fragment
-//        fragmentView = inflater.inflate(R.layout.fragment_recipes, container, false)
-//        return fragmentView
-
-        binding = FragmentRecipesBinding.inflate(inflater,container,false)
+        _binding = FragmentRecipesBinding.inflate(inflater,container,false)
         setupView()
         requestData()
         return binding.root
@@ -48,7 +44,7 @@ class RecipesFragment : Fragment() {
     private fun setupView() {
         binding.recyclerView.adapter = recipeAdapter
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
-//        showShimmerEffect()
+        showShimmerEffect()
     }
 
     private fun requestData() {

@@ -1,14 +1,9 @@
-plugins {
-    id 'com.android.application'
-    id 'org.jetbrains.kotlin.android'
-    id 'kotlin-kapt'
-    id "kotlin-parcelize"
-    id 'com.google.dagger.hilt.android'
-//    id 'androidx.navigation.safeargs.kotlin'
-}
-
 apply plugin: 'com.android.application'
-apply plugin: 'com.google.dagger.hilt.android'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'androidx.navigation.safeargs.kotlin'
+apply plugin: 'dagger.hilt.android.plugin'
+apply plugin: 'kotlin-parcelize'
 
 android {
     namespace 'com.example.simplerecipe'
@@ -46,55 +41,62 @@ android {
 }
 
 dependencies {
-    implementation 'androidx.core:core-ktx:1.7.0'
+
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation 'androidx.core:core-ktx:1.9.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'
-    implementation 'com.google.android.material:material:1.7.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
 
-    // Coordinator Layout
-    implementation "androidx.coordinatorlayout:coordinatorlayout:1.2.0"
     // Material Components
     implementation 'com.google.android.material:material:1.7.0'
+
     // Navigation Component
     implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
     implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
+
     // Room components
     implementation "androidx.room:room-runtime:2.4.3"
     kapt "androidx.room:room-compiler:2.4.3"
-    annotationProcessor "androidx.room:room-compiler:2.4.3"
     implementation "androidx.room:room-ktx:2.4.3"
     androidTestImplementation "androidx.room:room-testing:2.4.3"
+
     // DataStore
     implementation "androidx.datastore:datastore-preferences:1.0.0"
+
     // Recyclerview
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
+
     // Retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
-    //OkHttp
-    implementation 'com.squareup.okhttp3:okhttp:4.10.0'
-    implementation 'com.squareup.okhttp3:logging-interceptor:4.10.0'
-    //Dagger - Hilt
-    implementation 'com.google.dagger:hilt-android:2.44.2'
-    kapt 'com.google.dagger:hilt-compiler:2.44.2'
+
+    // Dagger - Hilt
+    implementation "com.google.dagger:hilt-android:2.44.2"
+    kapt "com.google.dagger:hilt-android-compiler:2.44.2"
+
     // Coroutines
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4'
-    // ViewModel & LiveData
+
+    // Lifecycle
     implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.5.1"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.5.1"
-    // Coil
-    implementation 'io.coil-kt:coil:2.2.2'
+
+    // Image Loading library Coil
+    implementation "io.coil-kt:coil:2.2.2"
+
     // Gson
     implementation 'com.google.code.gson:gson:2.10'
-    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
-    // Shimmer FrameLayout
-    implementation 'dev.volo.shimmer:shimmer:0.6.0-alpha01'
+
+    // Shimmer
+    implementation 'com.facebook.shimmer:shimmer:0.5.0'
+
     // Jsoup
     implementation 'org.jsoup:jsoup:1.15.3'
 }
