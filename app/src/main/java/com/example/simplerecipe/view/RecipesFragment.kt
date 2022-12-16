@@ -14,10 +14,12 @@ import com.example.simplerecipe.databinding.FragmentRecipesBinding
 import com.example.simplerecipe.utility.ConstantValue.Companion.API_KEY
 import com.example.simplerecipe.utility.NetworkResult
 import dagger.hilt.android.AndroidEntryPoint
+import dagger.hilt.android.scopes.FragmentScoped
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
-@ExperimentalCoroutinesApi
 @AndroidEntryPoint
+@FragmentScoped
+@ExperimentalCoroutinesApi
 class RecipesFragment : Fragment() {
 
 //    private lateinit var fragmentView: View
@@ -25,6 +27,12 @@ class RecipesFragment : Fragment() {
     private lateinit var binding: FragmentRecipesBinding
     private lateinit var mainViewModel: MainViewModel
     private val recipeAdapter by lazy { RecipeAdapter() }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        mainViewModel = ViewModelProvider(requireActivity())[MainViewModel::class.java]
+
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,7 +42,7 @@ class RecipesFragment : Fragment() {
 //        fragmentView = inflater.inflate(R.layout.fragment_recipes, container, false)
 //        return fragmentView
         binding = FragmentRecipesBinding.inflate(inflater,container,false)
-        mainViewModel = ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
+//        mainViewModel = ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
         setupView()
         requestData()
         return binding.root

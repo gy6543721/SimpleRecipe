@@ -10,8 +10,10 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.simplerecipe.R
 import com.example.simplerecipe.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
+import dagger.hilt.android.scopes.ActivityScoped
 
 @AndroidEntryPoint
+@ActivityScoped
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
